@@ -1,11 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LogiTrack</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <nav class="sidebar">
+            <h2 class="logo">LogiTrack</h2>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('logs')">Logs</a></li>
+                <li><a href="#" onclick="showPage('historico')">Histórico Entrada/Saída</a></li>
+                <li><a href="#" onclick="showPage('estoque')">Estoque</a></li>
+                <li><a href="#" onclick="showPage('adicionar-produtos')">Adicionar Produtos</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div id="home" class="page active">
+                <h1>LogiTrack</h1>
+                <p>Sistema de estoque e controle. </p>
+                <div class="stats">
+                    <div class="stat-card">Entradas Hoje: </div>
+                    <div class="stat-card">Saídas Hoje: </div>
+                    <div class="stat-card">Estoque Atual:</div>
+                </div>
+            </div>
+
+            <div id="logs" class="page">
+                <h1>Logs do Sistema</h1>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Evento</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-10-01 10:00</td>
+                            <td>Sistema Iniciado</td>
+                            <td>Sucesso</td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-01 11:00</td>
+                            <td>Erro de Conexão</td>
+                            <td>Falha</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="historico" class="page">
+                <h1>Histórico de Entrada e Saída</h1>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Quantidade</th>
+                            <th>Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-10-01</td>
+                            <td>Entrada</td>
+                            <td>50</td>
+                            <td>Usuário A</td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-01</td>
+                            <td>Saída</td>
+                            <td>30</td>
+                            <td>Usuário B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="estoque" class="page">
+                <h1>Estoque</h1>
+                <div class="estoque-grid">
+                    <div class="item-card">
+                        <h3>Item A</h3>
+                        <p>Quantidade: 200</p>
+                        <p>Status: Disponível</p>
+                    </div>
+                    <div class="item-card">
+                        <h3>Item B</h3>
+                        <p>Quantidade: 150</p>
+                        <p>Status: Baixo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="adicionar-produtos" class="page">
+                <h1>Adicionar Produtos ao Estoque</h1>
+                <form class="add-product-form">
+                    <label for="nome-produto">Nome do Produto:</label>
+                    <input type="text" id="nome-produto" name="nome-produto" required>
+
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" min="1" required>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Disponível">Disponível</option>
+                        <option value="Baixo">Baixo</option>
+                        <option value="Esgotado">Esgotado</option>
+                    </select>
+
+                    <button type="submit">Adicionar Produto</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
 </body>
-</html>
+</html> 
